@@ -6,6 +6,7 @@ Library           RPA.Browser.Selenium    auto_close=${FALSE}
 Insert the sales data for the week and export it as a PDF
     Open the intranet website
     Log in
+    Fill and submit the form
 
 *** Keywords ***
 Open the intranet website
@@ -15,3 +16,12 @@ Log in
     Input Text    id:username    maria
     Input Password    id:password    thoushallnotpass
     Submit Form
+    Wait Until Page Contains Element    id:sales-form
+
+*** Keywords ***
+Fill and submit the form
+    Input Text    firstname    John
+    Input Text    lastname    Smith
+    Input Text    salesresult    123
+    Select From List By Value    id:salestarget    10000
+    Click Button    Submit
