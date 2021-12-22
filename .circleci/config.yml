@@ -7,6 +7,7 @@ jobs:
     docker:
       - image: 'cimg/python:3.7.5-browser'
     steps:
+      - checkout
       # install the latest versions
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -25,4 +26,3 @@ jobs:
       - run:
           command: |
             rcc run
-    workflows: null
